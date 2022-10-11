@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tourism-website';
+
+  scroll(targetElement : HTMLElement){
+    targetElement.scrollIntoView({behavior:'smooth'});
+  }
 }

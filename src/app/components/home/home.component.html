@@ -1,0 +1,66 @@
+
+<div class="row">
+    <img src="../../../assets/images/Ratnagiri-beach-omg.jpg" alt="HomeImg" style="width: 100%; height: 60vh">
+
+</div>
+
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="display-1 text-center">Plans</h2>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="card-group px-5">
+            <!-- Single plan -->
+            <div class="card">
+                <h5 class="card-header text-center fw-bold">Single</h5>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush" *ngFor="let planItems of singlePlanArr">
+                        <li class="list-group-items my-2 mx-3">{{planItems}}</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-primary">Book now</button>
+                </div>
+            </div>
+
+            <!-- Family plan -->
+            <div class="card ">
+                <h5 class="card-header text-center fw-bold">Family</h5>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush" *ngFor="let planItems of singlePlanArr, familyPlanArr">
+                        <li class="list-group-items my-2 mx-3">{{planItems}}</li>
+                    </ul>
+                    <ul class="list-group list-group-flush" *ngFor="let planItems of familyPlanArr">
+                        <li class="list-group-items my-2 mx-3">{{planItems}}</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-primary">Book now</button>
+                </div>
+            </div>
+
+            <!-- Group plan -->
+            <div class="card">
+                <h5 class="card-header text-center fw-bold">Group</h5>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush" *ngFor="let planItems of singlePlanArr, familyPlanArr">
+                        <li class="list-group-items my-2 mx-3">{{planItems}}</li>
+                    </ul>
+                    <ul class="list-group list-group-flush" *ngFor="let planItems of familyPlanArr">
+                        <li class="list-group-items my-2 mx-3">{{planItems}}</li>
+                    </ul>
+                    <ul class="list-group list-group-flush" *ngFor="let planItems of groupPlanArr">
+                        <li class="list-group-items my-2 mx-3">{{planItems}}</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-primary">Book now</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
