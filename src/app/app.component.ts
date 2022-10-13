@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'tourism-website';
 
-  scroll(targetElement : HTMLElement){
-    targetElement.scrollIntoView({behavior:'smooth'});
-  }
+  element:any;
+  bgClass="bg-transparent"
+  @HostListener('window:scroll', ['$event'])
+
+  onWindowScroll() {
+      this.element = document.querySelector('.navbar') as HTMLElement;
+      if (window.pageYOffset > this.element.clientHeight) {
+        this.bgClass = "bg-light"
+      } else {
+        this.bgClass = "bg-transparent"
+      }
+    }
+
+
+
 }
