@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +6,9 @@ import { Component, OnInit, Output } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  @Input()
+  planSection = "planSection"
 
   //Arrays for plans
   singlePlanArr = ['Food','Stay','Guide','Personal pictures'];
@@ -20,6 +23,10 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  planTrip(){
+    
   }
 
 }

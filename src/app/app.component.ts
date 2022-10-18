@@ -8,8 +8,13 @@ import { Component, HostListener } from '@angular/core';
 export class AppComponent {
   title = 'tourism-website';
 
-  element:any;
+
+  element : HTMLElement;
   bgClass="bg-transparent"
+
+  planSection = "planSection"
+
+
   @HostListener('window:scroll', ['$event'])
 
   onWindowScroll() {
@@ -20,6 +25,12 @@ export class AppComponent {
         this.bgClass = "bg-transparent"
       }
     }
+
+  scrollToSection(){
+    document.getElementById("plan").scrollIntoView();
+  }
+
+  
 
 
 

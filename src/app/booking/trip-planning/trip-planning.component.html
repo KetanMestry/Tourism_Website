@@ -1,0 +1,40 @@
+<div class="container " style="margin-top:4.5em;">
+    <div class="row display-5 ">Plan Your Trip</div>
+    <div class="card-body ">
+        <form action="">
+            <!-- Select Date -->
+            <div class="form-group row m-2">
+                <label for="inputDate" class="col-sm-2 col-form-label">Select Date:</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control w-md-25 w-50 " id="inputDate">
+                </div>
+            </div>
+    
+            <!-- Route Option -->
+            <div class="form-group row m-2">
+                <label for="inputRoute" class="col-sm-2 col-form-label">Select route:</label>
+                <div class="col-sm-10">
+                    <select name="inputeRoute" id="routeSelector" (change)="changeSelection()">
+                        <option *ngFor="let route of availableRoutes; index as i" [value]="i">{{route.routeName}}</option>
+                    </select>
+                </div>
+            </div>
+    
+            <!-- Route Points -->
+            <div class="form-group row m-2">
+                <label for="inputPoints" class="col-sm-2 col-form-label">Select points:</label>
+                <div class="col-sm-10">
+                    <div class="form-check"*ngFor="let points of availableRoutes[selectedRouteIndex].routePoints; index as i">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1" > 
+                        <label class="form-check-label" for="gridCheck1">
+                            {{points}}
+                          </label>
+                    </div>
+                   
+                   
+                </div>
+            </div>  
+        </form>
+    </div>
+   
+</div>
