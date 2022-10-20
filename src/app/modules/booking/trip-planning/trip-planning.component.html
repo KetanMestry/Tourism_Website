@@ -35,12 +35,15 @@
                 <!-- Selected points -->
                 <label  class="col-sm-2 col-form-label"  *ngIf="selectedRoutes.length > 0">Selected points:</label>
                 <div class="col-sm-4">
+                    <label *ngIf="selectedRoutes.length > 0" >Pickup Point: </label>
+                    <label *ngIf="selectedRoutes.length > 0" class="ms-1"> {{ pickUpPoint}}</label>
                     <div class="form-check"*ngFor="let points of selectedRoutes; index as i">
-                        <!-- <input class="form-check-input" type="radio" id="gridCheck2" [disabled]=true> -->
                         <label class="form-check-label d-block ms-2 " for="gridCheck2">
                             {{i+1}}. {{ points}}
                           </label>
                     </div>
+                    <label *ngIf="selectedRoutes.length > 0" >Drop Point: </label>
+                    <label *ngIf="selectedRoutes.length > 0" class="ms-1"> {{dropPoint}}</label>
                 </div>
             </div>  
 

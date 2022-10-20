@@ -13,6 +13,7 @@ export class TripRoutesService {
     routePoints:[
       "Khed", "Rasalgad", "Ladghad beach", "Harnai beach", "Suvarndurgh", "Fortgoa"
     ],
+    routeBasePrice:300
   },
   {
     routeStart: "Chiplun",
@@ -20,6 +21,7 @@ export class TripRoutesService {
     routePoints:[
       "Dabhol (khadi)", "Hedvi", "Velneshwar", "Chandikadevi (Temple)"
     ],
+    routeBasePrice:200
 
   },
   {
@@ -28,6 +30,7 @@ export class TripRoutesService {
     routePoints:[
       "Marleshwar (Temple)", "Karneshwar (Temple)", "Prachitgad (Fort)", "Bhavangad (Fort)"
     ],
+    routeBasePrice:250
 
   }, 
   {
@@ -36,6 +39,7 @@ export class TripRoutesService {
     routePoints:[
       "Ganpatipule (Temple, Beach)", "Malgind (Beach)", "Jaigad (Beach, Fort)", "Aare, ware (Beach)"
     ],
+    routeBasePrice:350
 
   }, 
   {
@@ -44,6 +48,8 @@ export class TripRoutesService {
     routePoints:[
       "Aadivre", "Dhurgpapeshwar"
     ],
+    routeBasePrice:200
+
 
   }
 ]
