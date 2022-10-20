@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TripPlanningComponent } from './trip-planning/trip-planning.component';
 import { BookingInfoComponent } from './booking-info/booking-info.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports:[
     TripPlanningComponent,

@@ -14,6 +14,7 @@ export class AppComponent {
   navBg="bg-transparent"
   navPosition="fixed-top";
   currentRoute:any;
+  footerPos:string;
 
   constructor(private router:Router){
     this.currentRoute
@@ -23,8 +24,12 @@ export class AppComponent {
               if(event instanceof NavigationStart) {
                 if(event.url=="/" || event.url.includes("/#") ){
                   this.navPosition="fixed-top"
+                  this.footerPos = ""
+
                 }else{
                   this.navPosition="sticky-top"
+                  this.footerPos="fixed-bottom"
+
                 }
               }
             });

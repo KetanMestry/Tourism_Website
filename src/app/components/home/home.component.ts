@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  @Input()
-  planSection = "planSection"
-
   //Arrays for plans
   singlePlanArr = ['Food','Stay','Guide','Personal pictures'];
 
@@ -17,8 +15,15 @@ export class HomeComponent implements OnInit {
   
   groupPlanArr = ['Customizable food','Group party' ]
 
-  @Output()
-  targetSection:string | undefined;
+  //Contactus Form
+  usrName:string;
+  usrEmail:string;
+  usrNum:number;
+  usrMsg:string;
+
+  contactUsForm(formvalue:NgForm){
+    console.log(formvalue.value)
+  }
 
   constructor() { }
 

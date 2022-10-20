@@ -1,20 +1,21 @@
 <div class="container ">
-    <div class="row display-5 ">Plan Your Trip</div>
-    <div class="card-body ">
-        <form>
+    <h2 class="row display-2 ps-3 ">Plan Your Trip</h2>
+        <form #planTrip="ngForm" (submit)="submitTripPlan(planTrip)" class="card-text">
+            <div class="card ps-2" style="background-color:#F5EFE6;">
+
             <!-- Select Date -->
             <div class="form-group row my-2">
-                <label for="inputDate" class="col-sm-2 col-form-label">Select Date:</label>
+                <label for="inputDate" class="col-sm-2 col-form-label">Select Date*:</label>
                 <div class="col-sm-10">
-                    <input type="date" class="form-control w-md-25 w-50 " id="inputDate">
+                    <input type="date" class="form-control w-md-25 w-50 " id="inputDate" name="tripDate" [(ngModel)]="selectedDate" required>
                 </div>
             </div>
 
             <!-- Route Option -->
             <div class="form-group row my-2">
-                <label for="inputRoute" class="col-sm-2 col-form-label">Select route:</label>
+                <label for="inputRoute" class="col-sm-2 col-form-label ">Select route:</label>
                 <div class="col-sm-10">
-                    <select name="inputeRoute" id="routeSelector" (change)="changeSelection()">
+                    <select name="inputeRoute" id="routeSelector" name="tripRoute"  (change)="changeSelection()">
                         <option *ngFor="let route of availableRoutes; index as i" [value]="i">{{route.routeStart + " - "
                             + route.routeEnd}}</option>
                     </select>
@@ -24,11 +25,11 @@
             <!-- Route Points option -->
             <div class="form-group row my-2">
                 <label for="inputPoints" class="col-sm-2 col-form-label">Select points:</label>
-                <div class="col-sm-4">
+                <div class="col-sm-3 ">
                     <div class="form-check"
                         *ngFor="let points of availableRoutes[selectedRouteIndex].routePoints; index as i">
                         <input class="form-check-input" type="checkbox" id="gridCheck1"
-                            (change)="checkBox($event,points)" [checked]="selectedRoutes.includes(points)">
+                            (change)="checkBox($event,points)" [checked]="selectedRoutes.includes(points)" name="tripPoints" >
                         <label class="form-check-label" for="gridCheck1">
                             {{points}}
                         </label>
@@ -36,42 +37,55 @@
                 </div>
 
                 <!-- Selected points section -->
-                <label class="col-sm-2 col-form-label" *ngIf="selectedRoutes.length > 0">Selected points:</label>
-                <div class="col-sm-4">
-                    <label *ngIf="selectedRoutes.length > 0">Pickup Point: </label>
-                    <label *ngIf="selectedRoutes.length > 0" class="ms-1"> {{ pickUpPoint}}</label>
-                    <div class="form-check" *ngFor="let points of selectedRoutes; index as i">
-                        <label class="form-check-label d-block ms-2 " for="gridCheck2">
-                            {{i+1}}. {{ points}}
-                        </label>
+                <div class="col-sm-6 "*ngIf="selectedRoutes.length > 0" >
+                    <label class="col-sm-4" >Selected points:</label>
+                    <div class="row">
+                       
+                        <div class="col-sm-8 card" >
+                            <div style="background-color:#7895B2;">
+                                <label >Pickup Point: </label>
+                                <label class="ms-1" > {{ pickUpPoint}}</label>
+                            </div>
+                          
+                            <div class="form-check" *ngFor="let points of selectedRoutes; index as i">
+                                <label class="form-check-label d-block ms-2 " for="gridCheck2">
+                                    {{i+1}}. {{ points}}
+                                </label>
+                            </div>
+                            <div style="background-color:#AEBDCA;">   
+                                <label >Drop Point: </label>
+                            <label class="ms-1"> {{dropPoint}}</label>
+                            </div>
+                            
+                        </div>
                     </div>
-                    <label *ngIf="selectedRoutes.length > 0">Drop Point: </label>
-                    <label *ngIf="selectedRoutes.length > 0" class="ms-1"> {{dropPoint}}</label>
+                   
                 </div>
             </div>
-
-
-
-            <!-- Amount -->
-            <div class="form-group row my-2">
-                <label for="inputPoints" class="col-sm-2 col-form-label">Total Amount per head:</label>
-                <div class="col-sm-10">
-                    <p>{{amountPerHead | currency : 'INR'}}</p>
-                </div>
             </div>
 
-            <!-- Submit Button -->
-            <div class="form-group row m-2 ">
-                <div class="text-start">
-                    <a class="btn btn-primary" routerLink="../bookinginfo">Confirm</a>
-
+            <div class="row ps-3">
+                <!-- Amount -->
+                <div class="form-group row my-2">
+                    <label for="inputPoints" class="col-sm-2 col-form-label">Total Amount per head:</label>
+                    <div class="col-sm-10">
+                        <p>{{amountPerHead | currency : 'INR'}}</p>
+                    </div>
                 </div>
-
+        
+                <!-- Submit Button -->
+                <div class="form-group row m-2 ">
+                    <div class="text-start">
+                        <button type="submit" class="btn btn-primary" [disabled]="planTrip.invalid" routerLink="../bookinginfo">Confirm</button>
+        
+                    </div>
+        
+                </div>
             </div>
 
         </form>
 
 
-    </div>
+    
 
 </div>

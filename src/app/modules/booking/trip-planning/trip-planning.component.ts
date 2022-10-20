@@ -1,4 +1,6 @@
+import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { TripRoutesService } from 'src/app/services/trip-routes.service';
 
 
@@ -24,6 +26,8 @@ export class TripPlanningComponent implements OnInit {
   currDropIndex: number = -1;
   basePointPrice = 100;
   calculatePricePerHead: number = 0;
+  selectedDate:any;
+  
 
   constructor(private tripRouteService: TripRoutesService) { }
 
@@ -49,6 +53,7 @@ export class TripPlanningComponent implements OnInit {
 
       //Decide the pickup point as per selected points
       this.setPickupPoint()
+      
 
       //Decide the drop point as per selected points
       this.setDropPoint()
@@ -91,6 +96,7 @@ export class TripPlanningComponent implements OnInit {
           if (this.selectedRoutes[k] == this.availableRoutes[i].routePoints[j]) {
             this.pickUpPoint = this.availableRoutes[i].routeStart;
             this.currPickUpIndex = this.availableRoutes[i]
+            
             return;
           }
         }
@@ -105,14 +111,18 @@ export class TripPlanningComponent implements OnInit {
         for (let k = 0; k < this.selectedRoutes.length; k++) {
           if (this.selectedRoutes[k] == this.availableRoutes[i].routePoints[j]) {
             this.dropPoint = this.availableRoutes[i].routeEnd;
-            this.currDropIndex = this.availableRoutes[i]             
+            this.currDropIndex = this.availableRoutes[i]   
+                   
           }
         }
       }
     }
   }
 
-
+  //Get selected plan trip values from form. 
+  submitTripPlan(tripForm:NgForm){
+    console.log(tripForm.value)
+  }
 
 }
 

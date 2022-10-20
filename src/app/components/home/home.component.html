@@ -1,12 +1,18 @@
 <div class="row" id="home">
-    <img src="assets/images/Ratnagiri-beach-omg.jpg" alt="HomeImg" style="width: 100%; height: 75vh">
+    <div class="container text-center">
+        <img src="assets/images/Ratnagiri-beach-omg.jpg" alt="HomeImg" style="width: 100%; height: 75vh">
+        <h2 class="centered display-1 col-12 mb-5 pb-5" style="text-shadow: 2px 4px 5px black;">Explore Konkan</h2>
+        <p class="centered mt-5 pt-5 h3 col-12" style="text-shadow: 2px 2px 2px black;">Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Odit, itaque!</p>
+    </div>
+
 </div>
 
 
-<div class="container mt-2" id="plans">
+<div class="container my-4" id="plans">
     <div class="row">
         <div class="col-12">
-            <h2 class="display-1 text-center">Plans</h2>
+            <h2 class="display-2 text-center">Plans</h2>
         </div>
     </div>
     <div class="row">
@@ -20,7 +26,7 @@
                     </ul>
                 </div>
                 <div class="card-footer text-center">
-                   <a class="btn btn-primary" routerLink="plantrip">Book Now</a>
+                    <a class="btn btn-dark" routerLink="plantrip">Book Now</a>
                 </div>
             </div>
 
@@ -36,7 +42,7 @@
                     </ul>
                 </div>
                 <div class="card-footer text-center">
-                    <button class="btn btn-primary"  routerLink="plantrip">Book now</button>
+                    <button class="btn btn-dark" routerLink="plantrip">Book now</button>
                 </div>
             </div>
 
@@ -55,7 +61,7 @@
                     </ul>
                 </div>
                 <div class="card-footer text-center">
-                    <button class="btn btn-primary" routerLink="plantrip">Book now</button>
+                    <button class="btn btn-dark" routerLink="plantrip">Book now</button>
                 </div>
             </div>
         </div>
@@ -64,23 +70,59 @@
 </div>
 
 <!-- About us -->
-<div id="aboutus">
-   <h2>About us</h2> 
-   <p>           <b>Less suffering , More Traveling</b>  <br><br>
+<div class="container-fluid my-4 pb-4" style="background-color: #3b3737;" id="aboutus">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="display-2 text-center text-light">About us</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="h5 text-center text-light"> Less suffering , More Traveling</p>
+                <p class="h5 text-center text-light"> 
 
-    Our mission at Konkan Tourism is to make affordable travel accessible to more people, to deliver affordable and enjoyable travel experiences that are seamless from end to end. By seamless, we mean hassle-free from the moment you start planning your trip.
-    
-    To get to your goal, the Konkan Tourism app helps to make searching and booking with customize travel plan as easy and stress-free as it ought to be.
-    </p>
+                    Our mission at Konkan Tourism is to make affordable travel accessible to more people, to deliver affordable and enjoyable travel experiences that are seamless from end to end. By seamless, we mean hassle-free from the moment you start planning your trip.
+                    
+                    To get to your goal, the Konkan Tourism app helps to make searching and booking with customize travel plan as easy and stress-free as it ought to be.
+                </p>
+            </div>
+        </div>
+
+    </div>
 </div>
+
 
 <!-- Contact us form -->
 
-<div>
-    <form action="">
-        Name:- <input type="text" name="Name"><br><br>
-        Email:- <input type="email" name="Email"><br><br>
-        Message:- <textarea name="Email"  cols="30" rows="10"></textarea><br><br>
-        <button class="btn btn-success">Submit</button><br>
-    </form>
-</div>
+<div class="container my-2 pb-5" >
+    <div class="row" id="contactus">
+      <h1 class="text-center display-2">Contact us</h1>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <form #contactUs="ngForm" (submit)="contactUsForm(contactUs)" class="mx-2 " style="width: 400px; max-width: 550px;">
+          <div class="mb-2">
+            <label for="exampleInputName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="exampleInputName" name="userName" [(ngModel)]="usrName">
+          </div>
+          <div class="mb-2">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="userEmail" [(ngModel)]="usrEmail">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-2">
+            <label for="exampleInputNumber" class="form-label">Contact No.</label>
+            <input type="number" class="form-control" id="exampleInputNumber" name="userContact" [(ngModel)]="usrNum">
+          </div>
+          <div class="mb-2">
+            <label for="exampleMessage" class="form-label">Message.</label>
+            <textarea name="message" id="exampleMessage" class="form-control" style="min-width: 100%"
+              rows="5" [(ngModel)]="usrMsg"></textarea>
+          </div>
+          <button type="submit" class=" btn btn-outline-dark mb-2 float-end ">Submit</button>
+         
+        </form>
+      </div>
+    </div>
+  </div>
