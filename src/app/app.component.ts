@@ -1,4 +1,5 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener,OnInit } from '@angular/core';
+import { Router,Event as NavigationEvent, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,25 @@ export class AppComponent {
 
 
   element : HTMLElement;
-  bgClass="bg-transparent"
+  navBg="bg-transparent"
+  navPosition="fixed-top";
+  currentRoute:any;
 
-  planSection = "planSection"
+  constructor(private router:Router){
+    this.currentRoute
+      =this.router.events
+          .subscribe(
+            (event: NavigationEvent) => {
+              if(event instanceof NavigationStart) {
+                if(event.url=="/" || event.url.includes("/#") ){
+                  this.navPosition="fixed-top"
+                }else{
+                  this.navPosition="sticky-top"
+                }
+              }
+            });
+  }
+  
 
 
   @HostListener('window:scroll', ['$event'])
@@ -20,16 +37,19 @@ export class AppComponent {
   onWindowScroll() {
       this.element = document.querySelector('.navbar') as HTMLElement;
       if (window.pageYOffset > this.element.clientHeight) {
-        this.bgClass = "bg-light"
+        this.navBg = "bg-light"
       } else {
-        this.bgClass = "bg-transparent"
+        this.navBg = "bg-transparent "
       }
+     
     }
 
-  scrollToSection(){
-    document.getElementById("plan").scrollIntoView();
+  scrollToSection(section:string){
+    document.getElementById(section).scrollIntoView({block:'center'});
   }
 
+  ngOnInit(): void {
+  }
   
 
 

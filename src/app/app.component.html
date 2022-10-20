@@ -1,27 +1,30 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light shadow "  [ngClass]="[navBg, navPosition]" (scroll)="onWindowScroll()">
+  <div class="container">
+    <a class="navbar-brand" routerLink=".">Konkan Tourism</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"  >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNavDropdown">
+      <ul class="navbar-nav">
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light  fixed-top shadow  zindex-fixed" [ngClass]="bgClass"  (scroll)="onWindowScroll()">
-    <div class="container">
-      <a class="navbar-brand" href="#">Konkan Tourism</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <button class="btn btn-outline-dark mx-2 my-2">Home</button>
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-dark mx-2 my-2" (click)="scrollToSection()" >Plans</button>
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-dark mx-2 my-2">About us</button>
-          </li>
-       
-        </ul>
-      </div>
+        <li class="nav-item">
+          <a class="btn btn-outline-dark mx-2 my-2" (click)="scrollToSection('home')" routerLink="."
+            fragment="home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-dark mx-2 my-2" (click)="scrollToSection('plans')" routerLink="."
+            fragment="plans">Plans</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-dark mx-2 my-2" (click)="scrollToSection('aboutus')" routerLink="."
+            fragment="aboutus">About Us</a>
+        </li>
+
+      </ul>
     </div>
-  </nav>
-  
+  </div>
+</nav>
+
 <router-outlet></router-outlet>
-  

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TripPlanningComponent } from './booking/trip-planning/trip-planning.component';
+import { TripPlanningComponent } from './modules/booking/trip-planning/trip-planning.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
@@ -15,7 +15,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    scrollPositionRestoration:'enabled',
+    anchorScrolling:'enabled',
+    scrollOffset: [0, 64]
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

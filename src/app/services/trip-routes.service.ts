@@ -8,36 +8,47 @@ export class TripRoutesService {
   constructor() { }
 
   availableRoutes = [{
-    routeName: "Chiplun-Dapoli",
+    routeStart: "Chiplun",
+    routeEnd:"Dapoli",
     routePoints:[
       "Khed", "Rasalgad", "Ladghad beach", "Harnai beach", "Suvarndurgh", "Fortgoa"
-    ]
+    ],
   },
   {
-    routeName: "Chiplun-Guhagar",
+    routeStart: "Chiplun",
+    routeEnd:"Guhagar",
     routePoints:[
       "Dabhol (khadi)", "Hedvi", "Velneshwar", "Chandikadevi (Temple)"
-    ]
+    ],
+
   },
   {
-    routeName:"Ratnagiri-Sangameshwar",
+    routeStart:"Ratnagiri",
+    routeEnd:"Sangameshwar",
     routePoints:[
       "Marleshwar (Temple)", "Karneshwar (Temple)", "Prachitgad (Fort)", "Bhavangad (Fort)"
-    ]
+    ],
+
   }, 
   {
-    routeName:"Ratnagiri",
+    routeStart:"Ratnagiri",
+    routeEnd:"Ratnagiri",
     routePoints:[
       "Ganpatipule (Temple, Beach)", "Malgind (Beach)", "Jaigad (Beach, Fort)", "Aare, ware (Beach)"
-    ]
+    ],
+
   }, 
   {
-    routeName: "Ratnagiri-Rajapur",
+    routeStart: "Ratnagiri",
+    routeEnd:"Rajapur",
     routePoints:[
       "Aadivre", "Dhurgpapeshwar"
-    ]
+    ],
+
   }
 ]
+
+  
 
 
   getAvailableRoutes()
