@@ -24,7 +24,6 @@ export class TripPlanningComponent implements OnInit {
   currDropIndex: number = -1;
   basePointPrice = 100;
   calculatePricePerHead: number = 0;
-  temp: number;
 
   constructor(private tripRouteService: TripRoutesService) { }
 

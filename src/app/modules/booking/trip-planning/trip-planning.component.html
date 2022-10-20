@@ -1,7 +1,7 @@
-<div class="container " >
+<div class="container ">
     <div class="row display-5 ">Plan Your Trip</div>
     <div class="card-body ">
-        <form action="">
+        <form>
             <!-- Select Date -->
             <div class="form-group row my-2">
                 <label for="inputDate" class="col-sm-2 col-form-label">Select Date:</label>
@@ -9,45 +9,48 @@
                     <input type="date" class="form-control w-md-25 w-50 " id="inputDate">
                 </div>
             </div>
-    
+
             <!-- Route Option -->
             <div class="form-group row my-2">
                 <label for="inputRoute" class="col-sm-2 col-form-label">Select route:</label>
                 <div class="col-sm-10">
                     <select name="inputeRoute" id="routeSelector" (change)="changeSelection()">
-                        <option *ngFor="let route of availableRoutes; index as i" [value]="i">{{route.routeStart + " - " + route.routeEnd}}</option>
+                        <option *ngFor="let route of availableRoutes; index as i" [value]="i">{{route.routeStart + " - "
+                            + route.routeEnd}}</option>
                     </select>
                 </div>
             </div>
-    
-            <!-- Route Points -->
+
+            <!-- Route Points option -->
             <div class="form-group row my-2">
                 <label for="inputPoints" class="col-sm-2 col-form-label">Select points:</label>
                 <div class="col-sm-4">
-                    <div class="form-check"*ngFor="let points of availableRoutes[selectedRouteIndex].routePoints; index as i">
-                        <input class="form-check-input" type="checkbox" id="gridCheck1" (change)="checkBox($event,points)" [checked]="selectedRoutes.includes(points)"> 
+                    <div class="form-check"
+                        *ngFor="let points of availableRoutes[selectedRouteIndex].routePoints; index as i">
+                        <input class="form-check-input" type="checkbox" id="gridCheck1"
+                            (change)="checkBox($event,points)" [checked]="selectedRoutes.includes(points)">
                         <label class="form-check-label" for="gridCheck1">
                             {{points}}
-                          </label>
+                        </label>
                     </div>
                 </div>
 
-                <!-- Selected points -->
-                <label  class="col-sm-2 col-form-label"  *ngIf="selectedRoutes.length > 0">Selected points:</label>
+                <!-- Selected points section -->
+                <label class="col-sm-2 col-form-label" *ngIf="selectedRoutes.length > 0">Selected points:</label>
                 <div class="col-sm-4">
-                    <label *ngIf="selectedRoutes.length > 0" >Pickup Point: </label>
+                    <label *ngIf="selectedRoutes.length > 0">Pickup Point: </label>
                     <label *ngIf="selectedRoutes.length > 0" class="ms-1"> {{ pickUpPoint}}</label>
-                    <div class="form-check"*ngFor="let points of selectedRoutes; index as i">
+                    <div class="form-check" *ngFor="let points of selectedRoutes; index as i">
                         <label class="form-check-label d-block ms-2 " for="gridCheck2">
                             {{i+1}}. {{ points}}
-                          </label>
+                        </label>
                     </div>
-                    <label *ngIf="selectedRoutes.length > 0" >Drop Point: </label>
+                    <label *ngIf="selectedRoutes.length > 0">Drop Point: </label>
                     <label *ngIf="selectedRoutes.length > 0" class="ms-1"> {{dropPoint}}</label>
                 </div>
-            </div>  
+            </div>
 
-           
+
 
             <!-- Amount -->
             <div class="form-group row my-2">
@@ -55,17 +58,20 @@
                 <div class="col-sm-10">
                     <p>{{amountPerHead | currency : 'INR'}}</p>
                 </div>
-            </div> 
+            </div>
 
             <!-- Submit Button -->
             <div class="form-group row m-2 ">
                 <div class="text-start">
-                    <button class="btn btn-primary" type="submit">Confirm</button>
+                    <a class="btn btn-primary" routerLink="../bookinginfo">Confirm</a>
 
                 </div>
-          
-            </div> 
+
+            </div>
+
         </form>
+
+
     </div>
-   
+
 </div>
