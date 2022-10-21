@@ -1,9 +1,19 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class TripRoutesService {
+
+  tripPlan : {
+    startPoint :string,
+    endPoint : string,
+    points : string[],
+    date:any
+  }
+
+  amountPerHead:number;
 
   constructor() { }
 
@@ -50,15 +60,16 @@ export class TripRoutesService {
     ],
     routeBasePrice:200
 
-
   }
 ]
-
-  
 
 
   getAvailableRoutes()
   {
     return this.availableRoutes;
   }
+
+  // setAmount(amt){
+  //   this.amountPerHead.next(amt);
+  // }
 }

@@ -2,14 +2,13 @@
     <div class="row">
         <h2 class="display-3 text-center">User Booking Info Form!</h2>
     </div>
-
     <div class="row">
-        <div class="card">
+        <div class="card mb-4">
             <div class=" col d-flex justify-content-center">
-                <form action="mb-3" style="width: 400px; max-width: 550px;">
+                <form #userInfoForm="ngForm" action="mb-3" style="width: 400px; max-width: 550px;">
                     <div class="my-2">
-                       <label for="infoForm" class="form-label fw-bold">Name</label>
-                       <input type="text" class="form-control"id="infoForm" placeholder="Enter Your Name">
+                        <label for="infoForm" class="form-label fw-bold">Name</label>
+                        <input type="text" name="userName" class="form-control" id="infoForm" placeholder="Enter Your Name" [(ngModel)]="userName" required>
                     </div>
                     <div class="my-2">
                         <label for="infoForm" class="form-label fw-bold">Address</label>
@@ -17,22 +16,100 @@
                     </div>
                     <div class="my-2">
                         <label for="infoForm" class="form-label fw-bold">Contact No</label>
-                        <input type="text" class="form-control" id="infoForm" placeholder="Mobile No">
+                        <input type="number" class="form-control" id="infoForm" placeholder="Mobile No">
                         <br>
-                        <input  type="text" class="form-control" id="infoForm" placeholder="Optional No">
+                        <input type="number" class="form-control" id="infoForm" placeholder="Optional No">
                     </div>
                     <div class="my-2">
                         <label for="infoForm" class="form-label fw-bold">Email</label>
                         <input type="text" class="form-control" id="infoForm" placeholder="Enter Email id">
                     </div>
-                    <div class="my-2 ">
-                        <button class="btn btn-success">Confirm</button>
+                    <div class="my-2">
+                        <label for="infoForm" class="form-label fw-bold">Number of members</label>
+                        <input type="number" class="form-control" id="infoForm" placeholder="No of members"
+                            name="numOfPerson" [(ngModel)]="totalNum">
+
                     </div>
-                 </form>
+                    <div class="my-2">
+                        <label for="infoForm" class="form-label fw-bold">Total amount:</label>
+                        <label for="infoForm" class="form-label fw-bold">{{tripRouteService.amountPerHead *
+                            totalNum}}</label>
+                    </div>
+
+
+                    <div class="my-2 ">
+                        <button class="btn btn-success" data-bs-toggle="modal"
+                            data-bs-target="#confirmBooking" [disabled]="userInfoForm.invalid">Confirm</button>
+                    </div>
+
+                </form>
             </div>
         </div>
-       
+
     </div>
 </div>
 
 
+<!-- Confirm Booking Modal -->
+
+
+
+<div class="modal fade" id="confirmBooking" tabindex="-1" aria-labelledby="confirmBookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmBookingModalLabel">Trip Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-3">
+                <div class="row">
+                    <div class="col-4">
+                        <p class="fw-bold">Trip date:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>{{tripRouteService.tripPlan.date}}</p>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <p class="fw-bold">Trip Route:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>{{tripRouteService.tripPlan.startPoint}}</p>
+                        <p *ngFor="let p of tripRouteService.tripPlan.points">{{p}}</p>
+                        <p>{{tripRouteService.tripPlan.endPoint}}</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <p class="fw-bold">Total members:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>{{totalNum}}</p>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <p class="fw-bold ">Total Amount:</p>
+                    </div>
+                    
+                    <div class="col-8">
+                        <p>{{tripRouteService.amountPerHead * totalNum}}</p>
+                    </div>
+                    
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" routerLink="" data-bs-dismiss="modal">Confirm
+                    Booking</button>
+            </div>
+        </div>
+    </div>
+</div>

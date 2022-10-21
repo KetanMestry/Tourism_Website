@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TripRoutesService } from 'src/app/services/trip-routes.service';
 
-
-
 @Component({
   selector: 'app-trip-planning',
   templateUrl: './trip-planning.component.html',
@@ -120,8 +118,14 @@ export class TripPlanningComponent implements OnInit {
   }
 
   //Get selected plan trip values from form. 
-  submitTripPlan(tripForm:NgForm){
-    console.log(tripForm.value)
+  submitTripPlan(){
+    this.tripRouteService.amountPerHead = this.amountPerHead;
+    this.tripRouteService.tripPlan = {
+      startPoint: this.pickUpPoint,
+      endPoint: this.dropPoint,
+      points: this.selectedRoutes,
+      date:this.selectedDate
+    }
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="container ">
     <h2 class="row display-2 ps-3 ">Plan Your Trip</h2>
-        <form #planTrip="ngForm" (submit)="submitTripPlan(planTrip)" class="card-text">
+        <form #planTrip="ngForm" class="card-text">
             <div class="card ps-2" style="background-color:#F5EFE6;">
 
             <!-- Select Date -->
@@ -76,7 +76,7 @@
                 <!-- Submit Button -->
                 <div class="form-group row m-2 ">
                     <div class="text-start">
-                        <button type="submit" class="btn btn-primary" [disabled]="planTrip.invalid" routerLink="../bookinginfo">Confirm</button>
+                        <button class="btn btn-primary" [disabled]="planTrip.invalid" routerLink="../bookinginfo" (click)="submitTripPlan()" >Confirm</button>
         
                     </div>
         
@@ -84,8 +84,8 @@
             </div>
 
         </form>
-
-
     
 
 </div>
+
+<!-- <app-booking-info></app-booking-info> -->

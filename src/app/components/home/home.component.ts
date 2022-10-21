@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { TripRoutesService } from 'src/app/services/trip-routes.service';
 
 @Component({
   selector: 'app-home',
@@ -25,9 +26,11 @@ export class HomeComponent implements OnInit {
     console.log(formvalue.value)
   }
 
-  constructor() { }
+  constructor(private testObj:TripRoutesService) { }
 
   ngOnInit(): void {
   }
+
+ 
 
 }
